@@ -31,6 +31,12 @@ gem "dartsass-sprockets", "~> 3.1"
 
 gem "font-awesome-sass", "~> 6.5", ">= 6.5.2"
 
+gem "haml-rails", "~> 2.1"
+
+gem "html2haml", "~> 2.3"
+
+gem 'simple_form', '~> 5.3', '>= 5.3.1'
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 

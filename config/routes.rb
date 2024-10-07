@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root "static_pages#landing_page"
+  root "home#index"
+
+  get "home/index"
   get "privacy_policy", to: "static_pages#privacy_policy"
 
   get "up" => "rails/health#show", as: :rails_health_check
