@@ -25,17 +25,28 @@ gem "jbuilder"
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
 
+# bootstrap
 gem "bootstrap", "~> 5.3", ">= 5.3.3"
 
 gem "dartsass-sprockets", "~> 3.1"
 
+# Iconos de font awesome
 gem "font-awesome-sass", "~> 6.5", ">= 6.5.2"
 
+# haml files
 gem "haml-rails", "~> 2.1"
 
+# Para poder usar el conversor de html.erb to ham
 gem "html2haml", "~> 2.3"
 
+# compatible para los forms con bootstrap, hay que hacer una config
 gem "simple_form", "~> 5.3", ">= 5.3.1"
+
+# Fake data
+gem "faker", "~> 3.4", ">= 3.4.2"
+
+# authentication devise
+gem "devise", "~> 4.9", ">= 4.9.4"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ windows jruby ]
