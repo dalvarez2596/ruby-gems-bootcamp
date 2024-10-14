@@ -14,9 +14,9 @@
             .fa.fa-book 
             Courses
       .form-inline.align-self-center 
-        = form_tag(root_path, method: :get) do 
+        = form_tag(courses_path, method: :get) do 
           .input-group.input-group-sm
-            = text_field_tag :name, params[:name], autocomplete: "off", placeholder: "Search", class: "form-control"
+            = text_field_tag :title, params[:title], autocomplete: "off", placeholder: "Search", class: "form-control"
             %button.btn.btn-primary{:type => "submit"}
               %span.fa.fa-search{"aria-hidden" => "true"}
       %ul.navbar-nav.me-right  
