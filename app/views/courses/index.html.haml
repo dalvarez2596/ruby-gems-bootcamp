@@ -1,8 +1,7 @@
 %h1
   Courses:
   = @courses.count
-.container
-  .row.row-cols-lg-4
-    - @courses.each do |course|
-      .col
-        = render 'courses/course', course: course
+.row.row-cols-lg-4
+  - @courses.each do |course|
+    .col
+      = render 'courses/course', course: course
