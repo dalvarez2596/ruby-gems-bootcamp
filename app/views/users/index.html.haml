@@ -1,0 +1,4 @@
+.row.row-cols-lg-4
+  - @users.each do |user|
+    .col
+      = render 'users/user', user: user
