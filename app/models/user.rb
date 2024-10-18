@@ -9,5 +9,9 @@ class User < ApplicationRecord
     email
   end
 
+  def self.ransackable_attributes(auth_object = nil)
+    [ "email", "sign_in_count" ]
+  end
+
   has_many :courses
 end
