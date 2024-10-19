@@ -3,12 +3,17 @@
     .col
       = render 'users/user', user: user
 
-= search_form_for @q do |f|
-  = f.search_field :email_cont, placeholder: "Email"
-  = f.search_field :sign_in_count_eq, placeholder: "Sign in count"
-  = f.submit
-= link_to users_path, class: 'btn btn-sm btn-secondary' do
-  .fa.fa-refresh
+%form.row.align-items-center.my-3
+  = search_form_for @q do |f|
+    .col-auto
+      = f.search_field :email_cont, placeholder: "Email", class: 'form-control'
+    .col-auto
+      = f.search_field :sign_in_count_eq, placeholder: "Sign in count", class: 'form-control'
+    .col-auto
+      = f.submit class: "btn btn-sm btn-secondary"
+    .col-auto
+      = link_to users_path, class: "btn btn-sm btn-secondary" do
+        .fa.fa-refresh
 
 %table.table.table-bordered
   %thead
