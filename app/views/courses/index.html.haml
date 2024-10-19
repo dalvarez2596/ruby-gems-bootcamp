@@ -1,7 +1,29 @@
 %h1
   Courses:
   = @courses.count
-.row.row-cols-lg-4
-  - @courses.each do |course|
-    .col
-      = render 'courses/course', course: course
+
+.row
+  .col-md-2
+    %form.row.align-items-center.my-3
+      = search_form_for @q do |f|
+        = f.label :title
+        = f.search_field :title_cont, placeholder: "Title", class: 'form-control'
+        = f.label :description
+        = f.search_field :short_description_cont, placeholder: "Description", class: 'form-control'
+        = f.label :language
+        = f.select :language_cont, Course.languages, include_blank: true
+        = f.label :level
+        = f.select :level_cont, Course.levels, include_blank: true
+        = f.label :price
+        = f.search_field :price_eq, placeholder: "Price", class: 'form-control'
+        = f.label :teacher
+        = f.search_field :user_email_cont, placeholder: "Email", class: 'form-control'
+        = f.submit class: "btn btn-sm btn-secondary form-control"
+        = link_to courses_path, class: "btn btn-sm btn-secondary form-control" do
+          .fa.fa-refresh
+  .col-md-10
+    .row.row-cols-lg-4
+      - @courses.each do |course|
+        .col
+          = render 'courses/course', course: course
+%br

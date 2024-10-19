@@ -12,6 +12,13 @@ class Course < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: :slugged
 
+  def self.ransackable_attributes(auth_object = nil)
+    [ "title", "short_description", "language", "level", "price" ]
+  end
+  def self.ransackable_associations(auth_object = nil)
+    [ "rich_text_description", "user" ]
+  end
+
   # Use this instead of normal name for transactions, is secure
   # friendly_id :generated_slug, use: :slugged
 
@@ -23,4 +30,13 @@ class Course < ApplicationRecord
   # def to_s
   #   slug
   # end
+  LANGUAGES = [ :"English", :"Spanish", :"Japanese" ]
+  def self.languages
+    LANGUAGES.map { |language| [ language, language ] }
+  end
+
+  LEVELS = [ :"Beginner", :"Intermediate", :"Advanced" ]
+  def self.levels
+    LEVELS.map { |level| [ level, level ] }
+  end
 end

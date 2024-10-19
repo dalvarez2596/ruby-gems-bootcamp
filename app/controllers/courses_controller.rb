@@ -7,7 +7,9 @@ class CoursesController < ApplicationController
       @courses = Course.where("title ILIKE ?",
         Course.sanitize_sql_like(params[:title]) + "%")
     else
-      @courses = Course.all
+      # @courses = Course.all
+      @q = Course.ransack(params[:q])
+      @courses = @q.result.includes(:user)
     end
   end
 
