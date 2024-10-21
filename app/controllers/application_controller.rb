@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   allow_browser versions: :modern
 
+  include PublicActivity::StoreController # save current_user using gem public activity
+
   before_action :set_global_variables, if: :user_signed_in?
   # navbar search
   def set_global_variables

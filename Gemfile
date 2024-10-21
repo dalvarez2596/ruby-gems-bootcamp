@@ -56,6 +56,10 @@ gem "friendly_id", "~> 5.5", ">= 5.5.1"
 # searching filters:
 gem "ransack", "~> 4.2", ">= 4.2.1"
 
+# show users activity:
+
+gem "public_activity", "~> 3.0", ">= 3.0.1"
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
