@@ -45,7 +45,7 @@ gem "html2haml", "~> 2.3"
 gem "simple_form", "~> 5.3", ">= 5.3.1"
 
 # Fake data
-gem "faker", "~> 3.4", ">= 3.4.2"
+gem "faker", "~> 3.5"
 
 # authentication devise
 gem "devise", "~> 4.9", ">= 4.9.4"
