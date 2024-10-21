@@ -4,4 +4,8 @@ class HomeController < ApplicationController
     @courses = Course.all.limit(4)
     @latest_courses = Course.all.limit(4).order(created_at: :desc)
   end
+
+  def activity
+    @activities = PublicActivity::Activity.all
+  end
 end
