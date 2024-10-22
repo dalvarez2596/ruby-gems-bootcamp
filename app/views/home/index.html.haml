@@ -4,13 +4,22 @@
       What do you want to learn today?
     
     .p-4
+    - if current_user
+      .form-inline.align-self-center
+        = search_form_for @ransack_courses, as: :courses_search, url: courses_path do |f|
+          .input-group.input-group-sm
+            = f.search_field :title_cont, class: "form-control-sm", placeholder: "Find a course", :autocomplete => :off
+            %button.btn.btn-primary{:type => "submit"}
+              %span.fa.fa-search{"aria-hidden" => "true"}
+    
 
-    .form-inline.align-self-center 
-      = form_tag(courses_path, method: :get) do 
-        .input-group.input-group-sm
-          = text_field_tag :title, params[:title], autocomplete: "off", placeholder: "Search", class: "form-control"
-          %button.btn.btn-primary{:type => "submit"}
-            %span.fa.fa-search{"aria-hidden" => "true"}
+    -# This was before ransack gem
+    -# .form-inline.align-self-center
+    -#   = form_tag(courses_path, method: :get) do 
+    -#     .input-group.input-group-sm
+    -#       = text_field_tag :title, params[:title], autocomplete: "off", placeholder: "Search", class: "form-control"
+    -#       %button.btn.btn-primary{:type => "submit"}
+    -#         %span.fa.fa-search{"aria-hidden" => "true"}
 
 .card-group
   .card.card-body
