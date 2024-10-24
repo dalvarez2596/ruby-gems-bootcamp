@@ -60,6 +60,10 @@ gem "ransack", "~> 4.2", ">= 4.2.1"
 
 gem "public_activity", "~> 3.0", ">= 3.0.1"
 
+# roles
+
+gem "rolify", "~> 6.0", ">= 6.0.1"
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
