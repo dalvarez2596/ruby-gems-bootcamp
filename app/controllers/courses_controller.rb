@@ -13,6 +13,15 @@ class CoursesController < ApplicationController
     #   # for advance and the header search we remove this q and use ransack courses
     #   # @q = Course.ransack(params[:q])
     # end
+    # rolify example:
+
+    # if current_user.has_role?(:admin)
+    #   @ransack_courses = Course.ransack(params[:courses_search], search_key: :courses_search)
+    #   @courses = @ransack_courses.result.includes(:user)
+    # else
+    #   redirect_to root_path, alert: "You don have access"
+    # end
+
     @ransack_courses = Course.ransack(params[:courses_search], search_key: :courses_search)
     @courses = @ransack_courses.result.includes(:user)
   end
