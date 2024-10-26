@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   protect_from_forgery
 
+  after_action :user_activity
   allow_browser versions: :modern
 
   include Pundit::Authorization
@@ -16,6 +17,11 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def user_activity
+    current_user.try :touch
+  end
+
   def user_not_authorized # pundit
     flash[:alert] = "You are not authorized to perform this action."
     redirect_back_or_to(root_path)

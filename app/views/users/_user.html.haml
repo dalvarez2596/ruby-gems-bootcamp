@@ -1,6 +1,6 @@
 .card.my-2
   .card-header
-    .fa.fa-user
+    %span{ class: user.online? ? "text-success fa fa-user" : "text-danger fa fa-user" }
     = link_to user.email, user_path(user)
   .card-footer
     Signed up
