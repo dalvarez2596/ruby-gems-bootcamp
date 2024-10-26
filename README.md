@@ -12,13 +12,18 @@ This application is built with Rails 7.2.1 and is designed to be a robust web ap
 - [Usage](#usage)
 
 ## Features
-- PostgreSQL as the database
-- User authentication with Devise
-- Friendly URLs with FriendlyId
-- Search functionality using Ransack
-- Activity tracking with Public Activity
-- Role management with Rolify
-- Bootstrap for styles
+- **PostgreSQL as the database**: A powerful, open-source relational database management system for robust data handling.
+- **User authentication with Devise**: Secure user registration, login, and password management out of the box.
+- **Friendly URLs with FriendlyId**: Clean, readable URLs that improve user experience and SEO.
+- **Search functionality using Ransack**: Advanced search capabilities allowing users to filter and find data efficiently.
+- **Activity tracking with Public Activity**: Monitor user actions and interactions throughout the application.
+- **Role management with Rolify**: Flexible role-based access control to manage user permissions seamlessly.
+- **Bootstrap for styles**: Responsive and modern design with a mobile-first approach for a polished user interface.
+- **Authorization with Pundit**: Fine-grained control over user access to resources and actions, ensuring data security.
+- **Form handling with Simple Form**: Easy-to-use forms with enhanced functionality for a better user experience.
+- **Faker for test data**: Generate realistic fake data for development and testing purposes.
+- **Haml for templating**: Clean and concise HTML templating language that streamlines view creation.
+- **Font Awesome icons**: A library of scalable vector icons to enhance the visual appeal of the application.
 
 ## Requirements
 - Ruby 3.2.2
