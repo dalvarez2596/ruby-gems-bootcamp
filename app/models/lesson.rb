@@ -2,9 +2,7 @@ class Lesson < ApplicationRecord
   belongs_to :course
   validates :title, :content, :course, presence: true
 
-  def to_s
-    title
-  end
+  has_rich_text :content
 
   extend FriendlyId
   friendly_id :title, use: :slugged
@@ -12,4 +10,8 @@ class Lesson < ApplicationRecord
   include PublicActivity::Model
   # tracked
   tracked owner: Proc.new { |controller, model| controller.current_user }
+
+  def to_s
+    title
+  end
 end
