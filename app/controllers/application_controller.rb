@@ -10,6 +10,8 @@ class ApplicationController < ActionController::Base
 
   include PublicActivity::StoreController # save current_user using gem public activity
 
+  include Pagy::Backend
+
   before_action :set_global_variables, if: :user_signed_in?
   # navbar search
   def set_global_variables

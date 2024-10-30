@@ -1,13 +1,14 @@
 # User.create!(email: 'admin@admin.com', password: 'Password1234', password_confirmation: 'Password1234')
 # this way we dont sent the confirmation email with devise
-# user = User.new(
-#   email: 'admin@example.com',
-#   password: 'admin@example.com',
-#   password_confirmation: 'admin@example.com'
-# )
-# user.skip_confirmation!
-# user.save!
+user = User.new(
+  email: 'admin@example.com',
+  password: 'admin@example.com',
+  password_confirmation: 'admin@example.com'
+)
+user.skip_confirmation!
+user.save!
 
+PublicActivity.enabled = false
 30.times do
   Course.create!([ {
     title: Faker::Educator.course_name,
@@ -19,3 +20,4 @@
     price: Faker::Number.between(from: 1000, to: 20000)
   } ])
 end
+PublicActivity.enabled = true
