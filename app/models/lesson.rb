@@ -8,8 +8,8 @@ class Lesson < ApplicationRecord
   friendly_id :title, use: :slugged
 
   include PublicActivity::Model
-  # tracked
   tracked owner: Proc.new { |controller, model| controller.current_user }
+  # tracked
 
   def to_s
     title

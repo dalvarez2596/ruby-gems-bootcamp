@@ -1,3 +1,8 @@
+-content_for :title do
+  E-learning
+  \|
+  Activity
+
 %h3.text-center 
   Activities
   .badge.bg-info
@@ -9,7 +14,8 @@
       = activity.id
       = activity.trackable_type
       = activity.trackable_id
-      = link_to activity.trackable, activity.trackable
+      - lesson = Lesson.find_by(id: activity.trackable_id) if activity.trackable_type == 'Lesson'
+      = link_to activity.trackable, lesson ? course_lesson_path(lesson.course, lesson): activity.trackable
       = activity.key
       = activity.parameters
       = activity.owner
