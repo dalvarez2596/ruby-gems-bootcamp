@@ -1,4 +1,12 @@
 # User.create!(email: 'admin@admin.com', password: 'Password1234', password_confirmation: 'Password1234')
+# this way we dont sent the confirmation email with devise
+# user = User.new(
+#   email: 'admin@example.com',
+#   password: 'admin@example.com',
+#   password_confirmation: 'admin@example.com'
+# )
+# user.skip_confirmation!
+# user.save!
 
 30.times do
   Course.create!([ {
