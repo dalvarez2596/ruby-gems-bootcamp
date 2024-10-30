@@ -1,3 +1,8 @@
+-content_for :title do
+  E-learning
+  \|
+  All users
+
 %h3.text-center 
   Users
   .badge.bg-info
@@ -34,10 +39,16 @@
       %th Confirmed?
       %th Roles
   %tbody
+
     - @users.each do |user|
       %tr 
         %td= user.id
-        %td= user.email
+        %td
+          - if user.online?
+            .text-success.fa.fa-user
+          - else
+            .text-danger.fa.fa-user
+          = link_to user.email, user_path(user)
         %td= user.created_at
         %td= user.sign_in_count
         %td= user.current_sign_in_at
@@ -49,6 +60,6 @@
           - user.roles.each do |role|
             .badge.bg-info
               = role.name
-          - if policy(user).edit?
-            = link_to 'Edit roles', edit_user_path(user), class: 'btn btn-sm btn-warning'
+          -# - if policy(user).edit?
+          -#   = link_to 'Edit roles', edit_user_path(user), class: 'btn btn-sm btn-warning'
       
