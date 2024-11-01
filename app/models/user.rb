@@ -24,6 +24,7 @@ class User < ApplicationRecord
   end
 
   has_many :courses
+  has_many :enrollments
 
   # this is more basic
   # def assign_default_role
