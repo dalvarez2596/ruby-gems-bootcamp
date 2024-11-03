@@ -5,8 +5,8 @@
   .card-body
     %small= simple_format(course.short_description)
   .card-footer
-    .text-center 
-      = number_to_currency(course.price)
+    .text-center
+      = enrollment_button(course)
   .card-footer
     .fa.fa-list-check
       = course.lessons.count
