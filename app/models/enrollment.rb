@@ -15,6 +15,14 @@ class Enrollment < ApplicationRecord
   extend FriendlyId
   friendly_id :to_s, use: :slugged
 
+  def self.ransackable_associations(auth_object = nil)
+    [ "course", "user" ]
+  end
+
+  def self.ransackable_attributes(auth_object = nil)
+    [ "price", "review", "rating", "updated_at", "created_at" ]
+  end
+
   def to_s
     user.to_s + " " + course.to_s
   end
