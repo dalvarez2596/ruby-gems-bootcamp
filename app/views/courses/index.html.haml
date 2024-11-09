@@ -12,7 +12,7 @@
   .col-md-2
     %form.row.align-items-center.my-3
       -# = search_form_for @q do |f|
-      = search_form_for @ransack_courses, as: :courses_search, url: courses_path do |f|
+      = search_form_for @ransack_courses, as: :courses_search, url: @ransack_path do |f|
         = f.label :title
         = f.search_field :title_cont, placeholder: "Title", class: 'form-control'
         = f.label :description
@@ -28,7 +28,7 @@
         %p
         = f.submit class: "btn btn-sm btn-secondary form-control"
         %p
-        = link_to courses_path, class: "btn btn-sm btn-secondary form-control" do
+        = link_to @ransack_path, class: "btn btn-sm btn-secondary form-control" do
           .fa.fa-refresh
   .col-md-10
     .row.row-cols-lg-4
