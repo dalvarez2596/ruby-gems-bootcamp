@@ -9,7 +9,7 @@
     = @enrollments.count
 %p
 %form.row.g-3
-  = search_form_for @q do |f|
+  = search_form_for @q, url: @ransack_path do |f|
     .col-auto
       = f.search_field :user_email_cont, placeholder: "User email", class: "form-control form-control-sm"
     .col-auto
@@ -23,7 +23,7 @@
     .col-auto
       = f.submit class: "btn btn-sm btn-secondary"
     .col-auto
-      = link_to enrollments_path, class: "btn btn-sm btn-secondary" do
+      = link_to @ransack_path, class: "btn btn-sm btn-secondary" do
         .fa.fa-refresh
 %p
 .table-responsive
