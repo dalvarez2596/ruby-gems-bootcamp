@@ -1,10 +1,12 @@
 - content_for :title do
   E-learning
   \|
-  All Courses
+  = action_name.humanize
+  courses
 
 %h3.text-center 
-  Courses
+  = action_name.humanize
+  courses
   .badge.bg-info
     = @courses.count
 
