@@ -18,7 +18,7 @@ class Course < ApplicationRecord
   friendly_id :title, use: :slugged
 
   def self.ransackable_attributes(auth_object = nil)
-    [ "title", "short_description", "language", "level", "price" ]
+    [ "title", "short_description", "language", "level", "price", "average_rating", "created_at", "enrollments_count" ]
   end
   def self.ransackable_associations(auth_object = nil)
     [ "rich_text_description", "user" ]
