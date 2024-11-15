@@ -92,6 +92,6 @@
   .fa.fa-comment
   What our students have to say
 .row.row-cols-lg-4
-  - @enrollments.each do |enrollment|
+  - @latest_good_reviews.each do |enrollment|
     .col
       = render 'enrollments/enrollment', enrollment: enrollment
