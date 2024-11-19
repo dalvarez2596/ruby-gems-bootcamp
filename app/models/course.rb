@@ -5,6 +5,10 @@ class Course < ApplicationRecord
   belongs_to :user, counter_cache: true
   # User.find_each{ |user| User.reset_counters(user.id, :courses)}
 
+  scope :latest, -> { limit(4).order(created_at: :desc) }
+  scope :top_rated, -> { limit(4).order(average_rating: :desc, created_at: :desc) }
+  scope :popular, -> { limit(4).order(enrollments_count: :desc, created_at: :desc) }
+
   has_many :lessons, dependent: :destroy
   has_many :enrollments
 
