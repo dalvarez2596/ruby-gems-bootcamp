@@ -1,6 +1,11 @@
 .card
   .card-header
-    .far.fa-check-square
+    - if lesson.viewed?(current_user)
+      -# VIEWED
+      .text-success.far.fa-check-square
+    - else
+      -# NOT VIEWED
+      .text-danger.far.fa-check-square
     = link_to lesson.title, [@course, lesson]
   - if policy(lesson).show?
     .card-body
