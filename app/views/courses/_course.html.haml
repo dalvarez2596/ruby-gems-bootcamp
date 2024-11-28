@@ -30,15 +30,15 @@
   -# .card-footer
   -#   .fa.fa-list-check
   -#     = course.lessons_count
-  .card-footer
-    .row
-      .col-md-6
-        .fa.fa-globe-africa
-        = course.language
-      .col-md-6
-        .text-end
-          .fa.fa-signal
-          = course.level
+  -# .card-footer
+  -#   .row
+  -#     .col-md-6
+  -#       .fa.fa-globe-africa
+  -#       = course.language
+  -#     .col-md-6
+  -#       .text-end
+  -#         .fa.fa-signal
+  -#         = course.level
   -# .card-footer
   -#   .row
   -#     .col-md-6
@@ -50,6 +50,8 @@
   -#         = link_to course.user.username, user_path(course.user)
   - if current_user && policy(course).edit?
     .card-footer
+      -if policy(course).owner?
+        = link_to "Add lesson", new_course_lesson_path(course, @lesson), class: "btn btn-sm btn-primary" 
       = link_to 'Edit', edit_course_path(course), class: 'btn btn-sm btn-warning'
       -# - if current_user && policy(course).destroy?
       = link_to 'Destroy', course, data: { turbo_method: :delete, confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger'
