@@ -10,7 +10,7 @@ class Course < ApplicationRecord
   scope :popular, -> { limit(4).order(enrollments_count: :desc, created_at: :desc) }
 
   has_many :lessons, dependent: :destroy
-  has_many :enrollments
+  has_many :enrollments, dependent: :restrict_with_error
   has_many :user_lessons, through: :lessons
 
   def to_s
