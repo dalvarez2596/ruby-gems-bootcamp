@@ -23,9 +23,15 @@ class User < ApplicationRecord
     [ "email", "sign_in_count" ]
   end
 
-  has_many :courses
-  has_many :enrollments
-  has_many :user_lessons
+  # to not delete all user dependencies when user got deleted or
+  # destroy his own account we add nullify
+  # anyways this delete cant be perform
+  # cause user_id null false validation is in schema
+  # so need another migration to set remove
+  # :user_id, null:false
+  has_many :courses, dependent: :nullify
+  has_many :enrollments, dependent: :nullify
+  has_many :user_lessons, dependent: :nullify
 
   # this is more basic
   # def assign_default_role
