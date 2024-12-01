@@ -12,4 +12,10 @@ class HomeController < ApplicationController
   def activity
     @activities = PublicActivity::Activity.all
   end
+
+  def statistics
+    @users = User.all
+    @enrollments = Enrollment.all
+    @courses = Course.all
+  end
 end

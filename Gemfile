@@ -72,6 +72,13 @@ gem "pundit", "~> 2.4"
 
 gem "pagy", "~> 9.1", ">= 9.1.1"
 
+# gem for graphs
+
+gem "chartkick"
+
+# group date
+gem "groupdate"
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
