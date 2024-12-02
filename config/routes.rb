@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :users, only: [ :index, :edit, :show, :update ]
   get "home/index"
   get "activity", to: "home#activity"
-  get "statistics", to: "home#statistics"
+  get "analytics", to: "home#analytics"
   root "home#index"
 
   # get "privacy_policy", to: "static_pages#privacy_policy"
