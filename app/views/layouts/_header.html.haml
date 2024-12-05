@@ -84,6 +84,11 @@
                 Users
                 .badge.bg-danger
                   = User.count
+              = link_to unapproved_courses_path, class: "dropdown-item" do
+                .fa.fa-graduation-cap
+                Unapproved Courses
+                .badge.bg-danger
+                  = Course.unapproved.count
               = link_to enrollments_path, class: "dropdown-item" do
                 .fa.fa-lock-open
                 Enrollments

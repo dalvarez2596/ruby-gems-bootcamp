@@ -8,6 +8,10 @@ class Course < ApplicationRecord
   scope :latest, -> { limit(4).order(created_at: :desc) }
   scope :top_rated, -> { limit(4).order(average_rating: :desc, created_at: :desc) }
   scope :popular, -> { limit(4).order(enrollments_count: :desc, created_at: :desc) }
+  scope :published, -> { where(published: true) }
+  scope :unpublished, -> {where(published: false) }
+  scope :approved, -> { where(approved: true) }
+  scope :unapproved, -> { where(approved: false) }
 
   has_many :lessons, dependent: :destroy
   has_many :enrollments, dependent: :restrict_with_error

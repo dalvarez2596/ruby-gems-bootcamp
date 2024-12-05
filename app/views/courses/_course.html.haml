@@ -48,10 +48,27 @@
   -#       .text-end
   -#         .fa.fa-chalkboard-teacher
   -#         = link_to course.user.username, user_path(course.user)
-  - if current_user && policy(course).edit?
-    .card-footer
-      -if policy(course).owner?
-        = link_to "Add lesson", new_course_lesson_path(course, @lesson), class: "btn btn-sm btn-primary" 
-      = link_to 'Edit', edit_course_path(course), class: 'btn btn-sm btn-warning'
-      -# - if current_user && policy(course).destroy?
-      = link_to 'Destroy', course, data: { turbo_method: :delete, confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger'
+  - if current_user
+    - if policy(course).edit?
+      .card-footer
+        - if policy(course).owner?
+          = link_to "Add lesson", new_course_lesson_path(course, @lesson), class: "btn btn-sm btn-primary" 
+        = link_to 'Edit', edit_course_path(course), class: 'btn btn-sm btn-warning'
+        -# - if current_user && policy(course).destroy?
+        = link_to 'Destroy', course, data: { turbo_method: :delete, confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger'
+    - if policy(course).destroy?
+      .card-footer
+        - if course.published?
+          .badge.bg-success published
+        - else
+          .badge.bg-danger unpublished
+        - if course.approved?
+          .badge.bg-success approved
+        - else
+          .badge.bg-danger unapproved
+    - if policy(course).approve?
+      .card-footer
+        - if course.approved?
+          = link_to "unapprove", unapprove_course_path(course), data: { turbo_method: :patch }, class: 'btn btn-sm btn-danger'
+        - else
+          = link_to "approve", approve_course_path(course), data: { turbo_method: :patch }, class: 'btn btn-sm btn-success'
