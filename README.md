@@ -25,6 +25,8 @@ This application is built with Rails 7.2.1 and is designed to be a robust web ap
 - **Haml for templating**: Clean and concise HTML templating language that streamlines view creation.
 - **Font Awesome icons**: A library of scalable vector icons to enhance the visual appeal of the application.
 - **Pagy**: A library for pagination.
+- **Chartkick**: For Analytics and displaying graphs.
+- **groupdate**: For grouping in Chartkick
 
 ## Requirements
 - Ruby 3.2.2
