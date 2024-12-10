@@ -61,17 +61,17 @@ This application is built with Rails 7.2.1 and is designed to be a robust web ap
 
 4.  **Start the Rails server:**
 
-        ```bash
-        rails server
-        ```
+    ```bash
+    rails server
+    ```
 
     Visit the application: Open your browser and go to http://localhost:3000.
 
 5.  **Generate ERD DIAGRAM:**
 
-        ```bash
-        rake erd
-        ```
+    ```bash
+    rake erd
+    ```
 
     It will generate a pdf file, with the relations.
 
