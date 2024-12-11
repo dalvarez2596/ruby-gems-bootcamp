@@ -13,8 +13,24 @@ class CoursePolicy < ApplicationPolicy
   end
 
   def show?
-    @record.published && @record.approved ||@user.present? && @user.has_role?(:admin) || @user.present? && @record.user_id == @user.id || @record.bought(@user)
+    @record.published && @record.approved || @user.present? && @user.has_role?(:admin) || @user.present? && @record.user_id == @user.id || @user.present? && @record.bought(@user)
   end
+
+  # another logic for show
+  # def show?
+  #   # Check if the record is published and approved
+  #   return true if @record.published && @record.approved
+    
+  #   # Check user conditions if the user is present
+  #   return true if @user.present? && (
+  #     @user.has_role?(:admin) ||
+  #     @record.user_id == @user.id ||
+  #     @record.bought(@user)
+  #   )
+    
+  #   # If none of the conditions are met, return false
+  #   false
+  # end
 
   def edit?
     @record.user == @user
