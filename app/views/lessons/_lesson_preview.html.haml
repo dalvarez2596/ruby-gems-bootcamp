@@ -2,7 +2,10 @@
   .text-success.far.fa-check-square
 - else
   .text-danger.far.fa-check-square 
-= link_to lesson.title, [@course, lesson]
+= link_to [@course, lesson] do
+  -# = lesson.row_order 
+  = lesson.row_order_rank + 1
+  = lesson.title
 
 .float-end
   - if policy(lesson).edit?
