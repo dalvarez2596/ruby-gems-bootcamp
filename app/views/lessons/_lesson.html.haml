@@ -6,7 +6,9 @@
     - else
       -# NOT VIEWED
       .text-danger.far.fa-check-square
-    = link_to lesson.title, [@course, lesson]
+    = link_to [@course, lesson] do
+      %b #{lesson.row_order_rank + 1}.
+      = lesson.title
   - if policy(lesson).show?
     .card-body
       = lesson.content
