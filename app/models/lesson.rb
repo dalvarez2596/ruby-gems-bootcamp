@@ -1,4 +1,7 @@
 class Lesson < ApplicationRecord
+  include RankedModel
+  ranks :row_order, with_same: :course_id
+
   belongs_to :course, counter_cache: true
   has_many :user_lessons, dependent: :destroy
   # Course.find_each{ |course| Course.reset_counters(course.id, :lessons)}

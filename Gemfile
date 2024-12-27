@@ -81,7 +81,11 @@ gem "groupdate"
 
 # generation of erd 
 
-gem 'rails-erd', group: :development
+gem "rails-erd", group: :development
+
+
+# row sorting library built for Rails 4.2+. It uses ARel aggressively and is better optimized than most other libraries.
+gem "ranked-model"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ windows jruby ]
