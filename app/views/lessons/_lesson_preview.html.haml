@@ -4,7 +4,7 @@
   .text-danger.far.fa-check-square 
 = link_to [@course, lesson] do
   -# = lesson.row_order 
-  = lesson.row_order_rank + 1
+  %b #{lesson.row_order_rank + 1} 
   = lesson.title
 
 .float-end
