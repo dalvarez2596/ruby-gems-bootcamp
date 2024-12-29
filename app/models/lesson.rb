@@ -21,11 +21,11 @@ class Lesson < ApplicationRecord
   end
 
   def previous_lesson
-    course.lessons.where("row_order < ?", row_order).last
+    course.lessons.where("row_order < ?", row_order).order(:row_order).last
   end
 
   def next_lesson
-    course.lessons.where("row_order > ?", row_order).last
+    course.lessons.where("row_order > ?", row_order).order(:row_order).first
   end
 
   def viewed?(user)
