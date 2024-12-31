@@ -32,13 +32,13 @@
       .float-end
         .fa.fa-spinner
         = number_to_percentage(@course.progress(current_user), precision: 0)
-    %ul.list-group
+    %ul.list-group#sortable{data: { controller: "sortable" }}
       - @lessons.each do |lesson|
-        %li.list-group-item
+        %li.list-group-item{data: {sortable_handle: "", sortable_id: lesson.row_order_rank + 1, sortable_model: lesson.class, sortable_update_url: course_lesson_sort_path(@course, lesson) }}
           = render "lessons/lesson_preview", lesson: lesson
     %p
 
-    %h4
+      %h4
       .fa.fa-comment
       = pluralize(@enrollments_with_review.count, 'review')
     
