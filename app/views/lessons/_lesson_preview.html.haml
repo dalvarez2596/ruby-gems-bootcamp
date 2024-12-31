@@ -1,7 +1,11 @@
-- if lesson.viewed?(current_user)
-  .text-success.far.fa-check-square
-- else
-  .text-danger.far.fa-check-square 
+- if policy(lesson).show?
+  - if lesson.viewed?(current_user)
+    .text-success.far.fa-check-square
+  - else
+    .text-danger.far.fa-check-square
+- else 
+  .fa.fa-check-square
+
 = link_to [@course, lesson] do
   -# = lesson.row_order 
   %b #{lesson.row_order_rank + 1} 

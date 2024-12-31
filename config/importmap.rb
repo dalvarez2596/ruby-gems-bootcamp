@@ -11,3 +11,4 @@ pin "trix"
 pin "@rails/actiontext", to: "actiontext.esm.js"
 pin "chartkick", to: "chartkick.js"
 pin "Chart.bundle", to: "Chart.bundle.js"
+pin "sortablejs" # @1.15.6
