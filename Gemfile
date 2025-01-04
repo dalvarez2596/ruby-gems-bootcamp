@@ -83,6 +83,9 @@ gem "groupdate"
 
 gem "rails-erd", group: :development
 
+# aws
+gem "aws-sdk-s3", require: false
+
 
 # row sorting library built for Rails 4.2+. It uses ARel aggressively and is better optimized than most other libraries.
 gem "ranked-model"
