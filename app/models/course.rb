@@ -6,6 +6,8 @@ class Course < ApplicationRecord
   # User.find_each{ |user| User.reset_counters(user.id, :courses)}
 
   has_one_attached :avatar
+  validates :avatar, attached: true, content_type: [ "image/png", "image/jpeg", "image/jpg" ], size: { less_than: 500.kilobytes, message: "size should be under 500 kilobytes" }
+
 
   scope :latest, -> { limit(4).order(created_at: :desc) }
   scope :top_rated, -> { limit(4).order(average_rating: :desc, created_at: :desc) }
