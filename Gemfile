@@ -86,6 +86,10 @@ gem "rails-erd", group: :development
 # aws
 gem "aws-sdk-s3", require: false
 
+# Active storage validations:
+gem "active_storage_validations"
+
+
 
 # row sorting library built for Rails 4.2+. It uses ARel aggressively and is better optimized than most other libraries.
 gem "ranked-model"
