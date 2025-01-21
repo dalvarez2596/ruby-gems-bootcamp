@@ -74,6 +74,6 @@ class LessonsController < ApplicationController
       @lesson = Lesson.friendly.find(params[:id])
     end
     def lesson_params
-      params.require(:lesson).permit(:title, :content, :row_order_position)
+      params.require(:lesson).permit(:title, :content, :row_order_position, :video, :video_thumbnail)
     end
 end
