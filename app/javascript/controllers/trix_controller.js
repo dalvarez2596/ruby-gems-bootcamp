@@ -66,9 +66,10 @@ export default class extends Controller {
       this.initializeTrixCustomization.bind(this),
       true
     );
-    addEventListener("trix-file-accept", this.preventFromUpload.bind(this));
+    // addEventListener("trix-file-accept", this.preventFromUpload.bind(this));
   }
   initializeTrixCustomization(event) {
+    let trixToolbar = document.querySelector(".trix-button-row");
     // the code from bot could be use to add a new element to the view to underline.
     // Trix.config.textAttributes.underline = {
     //   tagName: "u",
@@ -90,7 +91,6 @@ export default class extends Controller {
     //   "trix-button--icon-underline"
     // );
     // underlineElement.innerHTML = "U";
-    let trixToolbar = document.querySelector(".trix-button-row");
     // document
     //   .querySelector(".trix-button-group--text-tools")
     //   .appendChild(underlineElement);
@@ -99,7 +99,9 @@ export default class extends Controller {
     // TOOLBAR_ICONS.forEach((cls) => {
     //   document.querySelector(cls).remove();
     // });
+
     //First we remove the icons from default and use a custom ones from fontawesome
+
     TOOLBAR_ICONS.forEach((icon) => {
       let trix_button = trixToolbar.querySelector(icon["current-icon-class"]);
       trix_button.classList.remove("trix-button--icon");
@@ -113,7 +115,6 @@ export default class extends Controller {
       .remove();
     // document.querySelector(".trix-button-group--file-tools").remove();
   }
-
   preventFromUpload(event) {
     event.preventDefault();
     alert("File attachment not supported!");

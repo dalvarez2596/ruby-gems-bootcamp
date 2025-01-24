@@ -15,11 +15,12 @@
       -if lesson.video.attached? && lesson.video.persisted?
         %video(controls="true" poster="#{ url_for lesson.video_thumbnail if lesson.video_thumbnail.attached? }" width="100%" preload="metadata")
           %source{src: rails_blob_url(lesson.video), type: "#{lesson.video.content_type}"}
+
       = lesson.content
   - if policy(lesson).edit?
     .card-footer
       = link_to 'Edit', edit_course_lesson_path(@course, lesson), class: 'btn btn-sm btn-warning'
-      = link_to 'Destroy', [@course, lesson], data: { turbo_method: :delete, confirm: 'Are you sure' }, class: 'btn btn-sm btn-danger'
+      = link_to 'Destroy', [@course, lesson], data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger'
   .card-footer
     - if lesson.previous_lesson
       .float-start
